@@ -537,153 +537,266 @@
         }
 
         /* =====================================================
-           PROJECTS
+               PROJECT GALLERY
+            ===================================================== */
+            
+            .project-gallery {
+                position: relative;
+                width: 100%;
+                height: 360px;
+                margin: 28px 0 24px;
+                overflow: hidden;
+                border-radius: 16px;
+                background: #f5f5f5;
+            }
+            
+            
+            /* TRACK */
+            
+            .gallery-track {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.45s ease;
+            }
+            
+            
+            /* SLIDE */
+            
+            .gallery-slide {
+                min-width: 100%;
+                width: 100%;
+                height: 100%;
+            
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            
+                overflow: hidden;
+            }
+            
+            
+            /* IMAGE */
+            
+            .gallery-slide img {
+                width: 100%;
+                height: 100%;
+            
+                object-fit: contain;
+            
+                display: block;
+            
+                user-select: none;
+            }
+            
+            
+            /* =====================================================
+               GALLERY BUTTON
+            ===================================================== */
+            
+            .gallery-btn {
+                position: absolute;
+            
+                top: 50%;
+                transform: translateY(-50%);
+            
+                width: 42px;
+                height: 42px;
+            
+                border: none;
+                border-radius: 50%;
+            
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            
+                background: rgba(0, 0, 0, 0.65);
+                color: #fff;
+            
+                cursor: pointer;
+            
+                z-index: 5;
+            
+                transition:
+                    background 0.25s ease,
+                    transform 0.25s ease;
+            }
+            
+            
+            .gallery-btn:hover {
+                background: rgba(0, 0, 0, 0.85);
+            
+                transform:
+                    translateY(-50%)
+                    scale(1.05);
+            }
+            
+            
+            .gallery-prev {
+                left: 16px;
+            }
+            
+            
+            .gallery-next {
+                right: 16px;
+            }
+
+
+        /* =====================================================
+           GALLERY DOTS
         ===================================================== */
-
-        #projects {
-            background: white;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            position: relative;
-
-            background: white;
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            padding: 30px;
-
-            overflow: hidden;
-
-            transition: 0.35s;
-        }
-
-        .project-card::before {
-            content: "";
+        
+        .gallery-dots {
             position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 4px;
-
-            background: linear-gradient(
-                90deg,
-                var(--primary),
-                #818cf8
-            );
-
-            transform: scaleX(0);
-            transform-origin: left;
-
-            transition: 0.35s;
+        
+            bottom: 15px;
+            left: 50%;
+        
+            transform: translateX(-50%);
+        
+            display: flex;
+            gap: 7px;
+        
+            z-index: 5;
         }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-            border-color: #cbd5e1;
+        
+        
+        .gallery-dot {
+            width: 7px;
+            height: 7px;
+        
+            padding: 0;
+        
+            border: none;
+            border-radius: 50%;
+        
+            background: rgba(255, 255, 255, 0.55);
+        
+            cursor: pointer;
+        
+            transition:
+                width 0.25s ease,
+                background 0.25s ease;
         }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
+        
+        
+        .gallery-dot.active {
+            width: 22px;
+        
+            border-radius: 10px;
+        
+            background: #fff;
         }
-
-        .project-number {
-            color: var(--primary-dark);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 2px;
+        
+        
+        /* =====================================================
+           PROJECT DESCRIPTION
+        ===================================================== */
+        
+        .project-description {
+            max-width: 700px;
+        
+            margin-bottom: 0;
+        
+            line-height: 1.7;
         }
-
-        .project-card h3 {
-            margin: 10px 0 12px;
-            color: var(--dark);
-            font-size: 20px;
+        
+        
+        /* =====================================================
+           PROJECT INFO
+        ===================================================== */
+        
+        .project-info {
+            margin-top: 10px;
         }
-
-        .project-card > p {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 22px;
-        }
-
+        
+        
         .project-section {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
-
+        
+        
         .project-section strong {
             display: block;
-            color: var(--dark);
+        
+            margin-bottom: 7px;
+        
             font-size: 13px;
-            margin-bottom: 8px;
+        
+            text-transform: uppercase;
+        
+            letter-spacing: 1px;
         }
-
-        .project-section ul {
-            padding-left: 19px;
-            color: var(--muted);
-            font-size: 13px;
+        
+        
+        .project-section p {
+            margin: 0;
+        
+            line-height: 1.6;
         }
-
-        .project-section li {
-            margin-bottom: 6px;
+        
+        
+        /* =====================================================
+           PROJECT LINKS
+        ===================================================== */
+        
+        .project-links {
+            margin-top: 22px;
         }
-
-        .tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-
-            margin-top: 20px;
-            padding-top: 20px;
-
-            border-top: 1px solid var(--border);
+        
+        
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+        
+        @media (max-width: 850px) {
+        
+            .project-gallery {
+                height: 300px;
+        
+                margin-top: 22px;
+            }
+        
         }
-
-        .tech span,
-        .experience-tech span {
-            background: #f1f5f9;
-            color: #475569;
-
-            padding: 6px 9px;
-
-            border-radius: 6px;
-
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            margin-top: 2px;
-
-            padding: 9px 13px;
-
-            background: #f1f5f9;
-            color: var(--dark);
-
-            border-radius: 7px;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            transition: 0.3s;
-        }
-
-        .project-link:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
+        
+        
+        @media (max-width: 600px) {
+        
+            .project-gallery {
+                height: 240px;
+        
+                border-radius: 12px;
+            }
+        
+        
+            .gallery-btn {
+        
+                width: 36px;
+                height: 36px;
+        
+                font-size: 12px;
+            }
+        
+        
+            .gallery-prev {
+                left: 10px;
+            }
+        
+        
+            .gallery-next {
+                right: 10px;
+            }
+        
+        
+            .gallery-dots {
+                bottom: 10px;
+            }
+        
+        
+            .project-description {
+                font-size: 14px;
+            }
+        
         }
 
         /* =====================================================
@@ -1452,113 +1565,130 @@
 
 
     <!-- =====================================================
-         PROJECTS
-    ===================================================== -->
+     PROJECTS
+===================================================== -->
 
-    <section id="projects">
+<section id="projects">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="section-title reveal">
+        <div class="section-title reveal">
 
-                <span>03 — Projects</span>
+            <span>03 — Projects</span>
 
-                <h2>Selected Projects</h2>
+            <h2>Selected Projects</h2>
 
-            </div>
-
-
-            <div class="projects">
+        </div>
 
 
-                <!-- PROJECT 01 -->
-
-                <div class="project-card reveal">
-
-                    <div class="project-number">
-                        PROJECT 01
-                    </div>
-
-                    <h3>
-                        Sistem Persediaan Obat Puskesmas
-                    </h3>
-
-                    <p>
-                        Sistem informasi berbasis web yang dikembangkan
-                        untuk membantu pengelolaan persediaan obat pada
-                        Puskesmas Rupit, Sumatera Selatan.
-                        Sistem membantu proses pencatatan stok,
-                        monitoring persediaan, dan pembuatan laporan
-                        secara terstruktur.
-                    </p>
+        <div class="projects">
 
 
-                    <div class="project-section">
+            <!-- =================================================
+                 PROJECT 01
+            ================================================== -->
 
-                        <strong>
-                            Key Features
-                        </strong>
+            <div class="project-card reveal">
 
-                        <ul>
+                <div class="project-number">
+                    PROJECT 01
+                </div>
 
-                            <li>
-                                Pengelolaan data obat dan persediaan
-                            </li>
 
-                            <li>
-                                Pencatatan stok masuk dan stok keluar
-                            </li>
+                <h3>
+                    Sistem Persediaan Obat Puskesmas
+                </h3>
 
-                            <li>
-                                Monitoring ketersediaan obat
-                            </li>
 
-                            <li>
-                                Pembuatan laporan persediaan
-                            </li>
+                <p class="project-description">
+                    Sistem informasi berbasis web untuk membantu
+                    pengelolaan stok dan persediaan obat secara
+                    lebih terstruktur.
+                </p>
 
-                            <li>
-                                Pengelolaan database secara terstruktur
-                            </li>
 
-                            <li>
-                                Implementasi sistem berbasis web
-                            </li>
+                <!-- PROJECT IMAGE CAROUSEL -->
 
-                        </ul>
+                <div class="project-gallery">
+
+                    <div class="gallery-track">
+
+                        <div class="gallery-slide">
+                            <img src="images/project-obat-1.jpg"
+                                 alt="Sistem Persediaan Obat Puskesmas">
+                        </div>
+
+                        <div class="gallery-slide">
+                            <img src="images/project-obat-2.jpg"
+                                 alt="Dashboard Sistem Persediaan Obat">
+                        </div>
+
+                        <div class="gallery-slide">
+                            <img src="images/project-obat-3.jpg"
+                                 alt="Data Persediaan Obat">
+                        </div>
+
+                        <div class="gallery-slide">
+                            <img src="images/project-obat-4.jpg"
+                                 alt="Laporan Persediaan Obat">
+                        </div>
 
                     </div>
 
 
+                    <!-- ARROWS -->
+
+                    <button class="gallery-btn gallery-prev"
+                            type="button"
+                            aria-label="Previous image">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                    </button>
+
+
+                    <button class="gallery-btn gallery-next"
+                            type="button"
+                            aria-label="Next image">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- DOTS -->
+
+                    <div class="gallery-dots">
+
+                        <button class="gallery-dot active"
+                                type="button"></button>
+
+                        <button class="gallery-dot"
+                                type="button"></button>
+
+                        <button class="gallery-dot"
+                                type="button"></button>
+
+                        <button class="gallery-dot"
+                                type="button"></button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT INFO -->
+
+                <div class="project-info">
+
                     <div class="project-section">
 
-                        <strong>
-                            My Contribution
-                        </strong>
+                        <strong>Focus</strong>
 
-                        <ul>
-
-                            <li>
-                                Analisis kebutuhan sistem
-                            </li>
-
-                            <li>
-                                Perancangan struktur database
-                            </li>
-
-                            <li>
-                                Pengembangan antarmuka dan fitur sistem
-                            </li>
-
-                            <li>
-                                Implementasi menggunakan Laravel dan MySQL
-                            </li>
-
-                            <li>
-                                Pengujian dan evaluasi sistem
-                            </li>
-
-                        </ul>
+                        <p>
+                            Inventory Management · Stock Monitoring ·
+                            Reporting
+                        </p>
 
                     </div>
 
@@ -1566,140 +1696,143 @@
                     <div class="tech">
 
                         <span>Laravel 12</span>
-                        <span>Tailwind CSS</span>
-                        <span>Bootstrap</span>
-                        <span>npm</span>
                         <span>PHP</span>
                         <span>MySQL</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
                         <span>JavaScript</span>
-                        <span>REST API</span>
-                        <span>GitHub</span>
-
-                    </div>
-
-
-                    <div style="margin-top: 20px;">
-
-                        <a href="https://github.com/Jaya9950/System-Persedian-obat-puskesmas"
-                           target="_blank"
-                           class="project-link">
-
-                            <i class="fa-brands fa-github"></i>
-
-                            View GitHub Repository →
-
-                        </a>
+                        <span>Bootstrap</span>
+                        <span>Tailwind CSS</span>
 
                     </div>
 
                 </div>
 
 
-                <!-- PROJECT 02 -->
+                <!-- PROJECT LINK -->
 
-                <div class="project-card reveal">
+                <div class="project-links">
 
-                    <div class="project-number">
-                        PROJECT 02
+                    <a href="https://github.com/Jaya9950/System-Persedian-obat-puskesmas"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="project-link">
+
+                        <i class="fa-brands fa-github"></i>
+
+                        GitHub Repository →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROJECT 02
+            ================================================== -->
+
+            <div class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+
+                <h3>
+                    Marketplace Web & Mobile Prototype
+                </h3>
+
+
+                <p class="project-description">
+                    Prototype marketplace untuk web dan mobile
+                    dengan fokus pada UI/UX, user flow, navigasi,
+                    dan interactive prototype.
+                </p>
+
+
+                <!-- PROJECT IMAGE CAROUSEL -->
+
+                <div class="project-gallery">
+
+                    <div class="gallery-track">
+
+                        <div class="gallery-slide">
+                            <img src="images/marketplace-1.jpg"
+                                 alt="Marketplace Web Prototype">
+                        </div>
+
+                        <div class="gallery-slide">
+                            <img src="images/marketplace-2.jpg"
+                                 alt="Marketplace Mobile Prototype">
+                        </div>
+
+                        <div class="gallery-slide">
+                            <img src="images/marketplace-3.jpg"
+                                 alt="Marketplace Product Page">
+                        </div>
+
+                        <div class="gallery-slide">
+                            <img src="images/marketplace-4.jpg"
+                                 alt="Marketplace Dashboard">
+                        </div>
+
                     </div>
 
-                    <h3>
-                        Marketplace Web & Mobile Prototype
-                    </h3>
 
-                    <p>
-                        Prototype desain Front-end marketplace untuk
-                        platform web dan mobile yang dibuat sebagai
-                        project mata kuliah Interaksi Manusia dan Komputer.
-                        Project berfokus pada perancangan antarmuka,
-                        user flow, navigasi, dan interaksi pengguna
-                        menggunakan Figma.
-                    </p>
+                    <!-- ARROWS -->
 
+                    <button class="gallery-btn gallery-prev"
+                            type="button"
+                            aria-label="Previous image">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                    </button>
+
+
+                    <button class="gallery-btn gallery-next"
+                            type="button"
+                            aria-label="Next image">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <!-- DOTS -->
+
+                    <div class="gallery-dots">
+
+                        <button class="gallery-dot active"
+                                type="button"></button>
+
+                        <button class="gallery-dot"
+                                type="button"></button>
+
+                        <button class="gallery-dot"
+                                type="button"></button>
+
+                        <button class="gallery-dot"
+                                type="button"></button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT INFO -->
+
+                <div class="project-info">
 
                     <div class="project-section">
 
-                        <strong>
-                            Key Features
-                        </strong>
+                        <strong>Focus</strong>
 
-                        <ul>
-
-                            <li>
-                                Marketplace interface untuk web dan mobile
-                            </li>
-
-                            <li>
-                                Product browsing dan product detail
-                            </li>
-
-                            <li>
-                                User navigation flow
-                            </li>
-
-                            <li>
-                                Interactive prototype
-                            </li>
-
-                            <li>
-                                Responsive interface design
-                            </li>
-
-                            <li>
-                                User-centered interface design
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-                    <div class="project-section">
-
-                        <strong>
-                            My Contribution
-                        </strong>
-
-                        <ul>
-
-                            <li>
-                                Perancangan user interface
-                            </li>
-
-                            <li>
-                                Perancangan user flow
-                            </li>
-
-                            <li>
-                                Pembuatan wireframe dan prototype
-                            </li>
-
-                            <li>
-                                Perancangan tampilan web dan mobile
-                            </li>
-
-                            <li>
-                                Pembuatan interactive prototype menggunakan Figma
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-                    <div style="margin-top: 20px;">
-
-                        <a href="https://www.figma.com/design/8GBYZewMhGAqrDNQT1Ezn7/Marketplace-Web---Mobile-Prototype?node-id=0-1&t=9xUywOr0Liox3gE0-1"
-                           target="_blank"
-                           class="project-link">
-
-                            <i class="fa-brands fa-figma"></i>
-
-                            View Front-end Project →
-
-                        </a>
+                        <p>
+                            UI/UX Design · User Flow ·
+                            Wireframe · Prototyping
+                        </p>
 
                     </div>
 
@@ -1708,15 +1841,29 @@
 
                         <span>Figma</span>
                         <span>UI/UX Design</span>
-                        <span>Login</span>
-                        <span>Dashboard</span>
-                        <span>Data Table</span>
-                        <span>Form</span>
-                        <span>Responsive Website</span>
                         <span>Wireframing</span>
                         <span>Prototyping</span>
+                        <span>Responsive Design</span>
 
                     </div>
+
+                </div>
+
+
+                <!-- PROJECT LINK -->
+
+                <div class="project-links">
+
+                    <a href="https://www.figma.com/design/8GBYZewMhGAqrDNQT1Ezn7/Marketplace-Web---Mobile-Prototype?node-id=0-1&t=9xUywOr0Liox3gE0-1"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="project-link">
+
+                        <i class="fa-brands fa-figma"></i>
+
+                        View Figma Project →
+
+                    </a>
 
                 </div>
 
@@ -1724,8 +1871,9 @@
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
     <!-- =====================================================
          EXPERIENCE
@@ -2433,7 +2581,156 @@
         });
 
     </script>
+<script>
 
+/* =====================================================
+   PROJECT IMAGE CAROUSEL
+===================================================== */
+
+document.querySelectorAll('.project-gallery').forEach(function(gallery) {
+
+    const track = gallery.querySelector('.gallery-track');
+
+    const slides = gallery.querySelectorAll('.gallery-slide');
+
+    const prevButton = gallery.querySelector('.gallery-prev');
+
+    const nextButton = gallery.querySelector('.gallery-next');
+
+    const dots = gallery.querySelectorAll('.gallery-dot');
+
+    let currentIndex = 0;
+
+
+    function updateGallery() {
+
+        track.style.transform =
+            `translateX(-${currentIndex * 100}%)`;
+
+
+        dots.forEach(function(dot, index) {
+
+            dot.classList.toggle(
+                'active',
+                index === currentIndex
+            );
+
+        });
+
+    }
+
+
+    nextButton.addEventListener('click', function() {
+
+        currentIndex++;
+
+        if (currentIndex >= slides.length) {
+
+            currentIndex = 0;
+
+        }
+
+        updateGallery();
+
+    });
+
+
+    prevButton.addEventListener('click', function() {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+
+            currentIndex = slides.length - 1;
+
+        }
+
+        updateGallery();
+
+    });
+
+
+    dots.forEach(function(dot, index) {
+
+        dot.addEventListener('click', function() {
+
+            currentIndex = index;
+
+            updateGallery();
+
+        });
+
+    });
+
+
+    /* =================================================
+       SWIPE MOBILE
+    ================================================= */
+
+    let startX = 0;
+
+    let endX = 0;
+
+
+    gallery.addEventListener(
+        'touchstart',
+        function(e) {
+
+            startX = e.touches[0].clientX;
+
+        },
+        { passive: true }
+    );
+
+
+    gallery.addEventListener(
+        'touchend',
+        function(e) {
+
+            endX = e.changedTouches[0].clientX;
+
+            const difference = startX - endX;
+
+
+            if (Math.abs(difference) < 50) {
+
+                return;
+
+            }
+
+
+            if (difference > 0) {
+
+                currentIndex++;
+
+                if (currentIndex >= slides.length) {
+
+                    currentIndex = 0;
+
+                }
+
+            } else {
+
+                currentIndex--;
+
+                if (currentIndex < 0) {
+
+                    currentIndex = slides.length - 1;
+
+                }
+
+            }
+
+
+            updateGallery();
+
+        },
+        { passive: true }
+    );
+
+});
+
+</script>
 </body>
 </html>
                                                                                                                                                                                                                                                                                                                                                                                                             
