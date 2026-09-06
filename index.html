@@ -2498,71 +2498,128 @@
          JAVASCRIPT
     ===================================================== -->
 
-    <script>
+   <script>
 
-        /* =====================================================
-           SCROLL PROGRESS
-        ===================================================== */
+document.querySelectorAll('.project-gallery').forEach(function(gallery) {
 
-        window.addEventListener("scroll", function () {
+    const track = gallery.querySelector('.gallery-track');
+    const slides = gallery.querySelectorAll('.gallery-slide');
 
-            const scrollTop = window.scrollY;
+    const prevButton = gallery.querySelector('.gallery-prev');
+    const nextButton = gallery.querySelector('.gallery-next');
 
-            const documentHeight =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
+    const dots = gallery.querySelectorAll('.gallery-dot');
 
-            const progress =
-                (scrollTop / documentHeight) * 100;
-
-            document.getElementById("scrollProgress").style.width =
-                progress + "%";
-
-        });
+    let currentIndex = 0;
 
 
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
+    function updateGallery() {
 
-        const revealElements =
-            document.querySelectorAll(".reveal");
+        track.style.transform =
+            `translateX(-${currentIndex * 100}%)`;
 
 
-        const revealObserver =
-            new IntersectionObserver(
+        dots.forEach(function(dot, index) {
 
-                function (entries) {
-
-                    entries.forEach(function (entry) {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add("active");
-
-                            revealObserver.unobserve(entry.target);
-
-                        }
-
-                    });
-
-                },
-
-                {
-                    threshold: 0.12
-                }
-
+            dot.classList.toggle(
+                'active',
+                index === currentIndex
             );
 
+        });
 
-        revealElements.forEach(function (element) {
+    }
 
-            revealObserver.observe(element);
+
+    nextButton.addEventListener('click', function() {
+
+        currentIndex++;
+
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
+
+        updateGallery();
+
+    });
+
+
+    prevButton.addEventListener('click', function() {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = slides.length - 1;
+        }
+
+        updateGallery();
+
+    });
+
+
+    dots.forEach(function(dot, index) {
+
+        dot.addEventListener('click', function() {
+
+            currentIndex = index;
+
+            updateGallery();
 
         });
 
-    </script>
-<script>
+    });
+
+
+    /* SWIPE */
+
+    let startX = 0;
+
+
+    gallery.addEventListener('touchstart', function(e) {
+
+        startX = e.touches[0].clientX;
+
+    }, { passive: true });
+
+
+    gallery.addEventListener('touchend', function(e) {
+
+        const endX = e.changedTouches[0].clientX;
+
+        const difference = startX - endX;
+
+
+        if (Math.abs(difference) < 50) {
+            return;
+        }
+
+
+        if (difference > 0) {
+
+            currentIndex++;
+
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
+            }
+
+        } else {
+
+            currentIndex--;
+
+            if (currentIndex < 0) {
+                currentIndex = slides.length - 1;
+            }
+
+        }
+
+
+        updateGallery();
+
+    }, { passive: true });
+
+});
+
+</script>
 
 /* =====================================================
    PROJECT IMAGE CAROUSEL
