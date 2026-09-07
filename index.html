@@ -1208,6 +1208,159 @@
             
             }
 
+        /* =====================================================
+           CERTIFICATE PDF
+        ===================================================== */
+        
+        .certification-grid {
+            display: grid;
+        
+            grid-template-columns: repeat(2, 1fr);
+        
+            gap: 18px;
+        }
+        
+        .certification-card {
+            display: flex;
+        
+            align-items: flex-start;
+        
+            gap: 18px;
+        
+            padding: 22px;
+        
+            background: var(--white);
+        
+            border: 1px solid var(--border);
+        
+            border-radius: 14px;
+        
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
+        
+            transition: 0.3s;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-4px);
+        
+            border-color: rgba(56, 189, 248, 0.4);
+        
+            box-shadow: var(--shadow);
+        }
+        
+        
+        /* PDF ICON */
+        
+        .certificate-icon {
+            width: 48px;
+            height: 48px;
+        
+            flex-shrink: 0;
+        
+            display: flex;
+        
+            align-items: center;
+            justify-content: center;
+        
+            border-radius: 11px;
+        
+            background: rgba(239, 68, 68, 0.08);
+        
+            color: #dc2626;
+        
+            font-size: 20px;
+        }
+        
+        
+        /* CONTENT */
+        
+        .certificate-content {
+            min-width: 0;
+        }
+        
+        .certificate-number {
+            display: block;
+        
+            color: var(--primary-dark);
+        
+            font-size: 9px;
+        
+            font-weight: 800;
+        
+            letter-spacing: 1.5px;
+        
+            margin-bottom: 5px;
+        }
+        
+        .certificate-content h3 {
+            color: var(--dark);
+        
+            font-size: 14px;
+        
+            margin-bottom: 5px;
+        }
+        
+        .certificate-content p {
+            color: var(--muted);
+        
+            font-size: 11px;
+        
+            line-height: 1.6;
+        
+            margin-bottom: 10px;
+        }
+        
+        
+        /* PDF LINK */
+        
+        .certificate-link {
+            display: inline-flex;
+        
+            align-items: center;
+        
+            gap: 7px;
+        
+            color: var(--primary-dark);
+        
+            font-size: 11px;
+        
+            font-weight: 800;
+        
+            transition: 0.3s;
+        }
+        
+        .certificate-link:hover {
+            color: var(--dark);
+        
+            transform: translateX(3px);
+        }
+        
+        
+        /* MOBILE */
+        
+        @media (max-width: 768px) {
+        
+            .certification-grid {
+                grid-template-columns: 1fr;
+            }
+        
+        }
+        
+        @media (max-width: 600px) {
+        
+            .certification-card {
+                padding: 18px;
+            }
+        
+            .certificate-icon {
+                width: 42px;
+                height: 42px;
+        
+                font-size: 17px;
+            }
+        
+        }
+
     </style>
 </head>
 
@@ -2246,70 +2399,235 @@
         </div>
 
     </section>
-
-
+    
     <!-- =====================================================
          CERTIFICATIONS
     ====================================================== -->
-
+    
     <section id="certifications">
-
+    
         <div class="container">
-
+    
             <div class="section-header reveal">
-
+    
                 <div class="section-label">
                     Certifications
                 </div>
-
+    
                 <h2>
                     Certification & Training
                 </h2>
-
+    
+                <p>
+                    Sertifikasi dan pelatihan yang mendukung
+                    kompetensi saya di bidang teknologi informasi.
+                </p>
+    
             </div>
-
-
+    
+    
             <div class="certification-grid">
-
-
+    
+    
+                <!-- CERTIFICATE 01 -->
+    
                 <div class="certification-card reveal">
-
-                    <i class="fa-solid fa-certificate"></i>
-
-                    <h3>
-                        Sertifikasi Profesi
-                    </h3>
-
-                    <p>
-                        Kompetensi bidang teknologi informasi
-                        dan IT Support.
-                    </p>
-
+    
+                    <div class="certificate-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+    
+                    <div class="certificate-content">
+    
+                        <span class="certificate-number">
+                            CERTIFICATE 01
+                        </span>
+    
+                        <h3>
+                            Sertifikasi Profesi
+                        </h3>
+    
+                        <p>
+                            Sertifikasi kompetensi profesional
+                            di bidang Teknologi Informasi.
+                        </p>
+    
+                        <a
+                            href="certificates/sertifikat-1.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="certificate-link"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Certificate
+                        </a>
+    
+                    </div>
+    
                 </div>
-
-
+    
+    
+    
+                <!-- CERTIFICATE 02 -->
+    
                 <div class="certification-card reveal">
-
-                    <i class="fa-solid fa-award"></i>
-
-                    <h3>
-                        Pelatihan Teknologi Informasi
-                    </h3>
-
-                    <p>
-                        Pengembangan kemampuan teknis,
-                        software dan sistem informasi.
-                    </p>
-
+    
+                    <div class="certificate-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+    
+                    <div class="certificate-content">
+    
+                        <span class="certificate-number">
+                            CERTIFICATE 02
+                        </span>
+    
+                        <h3>
+                            Sertifikat Magang
+                        </h3>
+    
+                        <p>
+                            Sertifikat pengalaman pemagangan
+                            dan pengembangan kompetensi kerja.
+                        </p>
+    
+                        <a
+                            href="certificates/sertifikat-2.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="certificate-link"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Certificate
+                        </a>
+    
+                    </div>
+    
                 </div>
-
-
+    
+    
+    
+                <!-- CERTIFICATE 03 -->
+    
+                <div class="certification-card reveal">
+    
+                    <div class="certificate-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+    
+                    <div class="certificate-content">
+    
+                        <span class="certificate-number">
+                            CERTIFICATE 03
+                        </span>
+    
+                        <h3>
+                            IT Support Training
+                        </h3>
+    
+                        <p>
+                            Pelatihan dan pengembangan kompetensi
+                            dalam bidang IT Support.
+                        </p>
+    
+                        <a
+                            href="certificates/sertifikat-3.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="certificate-link"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Certificate
+                        </a>
+    
+                    </div>
+    
+                </div>
+    
+    
+    
+                <!-- CERTIFICATE 04 -->
+    
+                <div class="certification-card reveal">
+    
+                    <div class="certificate-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+    
+                    <div class="certificate-content">
+    
+                        <span class="certificate-number">
+                            CERTIFICATE 04
+                        </span>
+    
+                        <h3>
+                            Pelatihan Teknologi Informasi
+                        </h3>
+    
+                        <p>
+                            Sertifikat pelatihan dan pengembangan
+                            keterampilan di bidang teknologi informasi.
+                        </p>
+    
+                        <a
+                            href="certificates/sertifikat-4.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="certificate-link"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Certificate
+                        </a>
+    
+                    </div>
+    
+                </div>
+    
+    
+    
+                <!-- CERTIFICATE 05 -->
+    
+                <div class="certification-card reveal">
+    
+                    <div class="certificate-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+    
+                    <div class="certificate-content">
+    
+                        <span class="certificate-number">
+                            CERTIFICATE 05
+                        </span>
+    
+                        <h3>
+                            Sertifikat Kompetensi
+                        </h3>
+    
+                        <p>
+                            Sertifikat yang mendukung kompetensi
+                            dan pengembangan profesional.
+                        </p>
+    
+                        <a
+                            href="certificates/sertifikat-5.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="certificate-link"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Certificate
+                        </a>
+    
+                    </div>
+    
+                </div>
+    
+    
             </div>
-
+    
         </div>
-
+    
     </section>
-
 
     <!-- =====================================================
          CONTACT
