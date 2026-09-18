@@ -1642,6 +1642,73 @@
         
         }
 
+        /* =========================
+           HERO TEXT INTRO ANIMATION
+        ========================= */
+        
+        .hero-content > * {
+          opacity: 0;
+          transform: translateY(25px);
+          animation: heroTextIn 0.7s ease forwards;
+        }
+        
+        /* Urutan masuk */
+        .hero-content > .hero-label {
+          animation-delay: 0.1s;
+        }
+        
+        .hero-content > h1 {
+          animation-delay: 0.25s;
+        }
+        
+        .hero-content > .hero-role {
+          animation-delay: 0.4s;
+        }
+        
+        .hero-content > .hero-description {
+          animation-delay: 0.55s;
+        }
+        
+        .hero-content > .availability {
+          animation-delay: 0.7s;
+        }
+        
+        .hero-content > .hero-buttons {
+          animation-delay: 0.85s;
+        }
+        
+        @keyframes heroTextIn {
+          from {
+            opacity: 0;
+            transform: translateY(25px);
+          }
+        
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .hero-photo {
+          opacity: 0;
+          transform: translateX(40px) scale(0.95);
+          animation: heroPhotoIn 0.9s ease forwards,
+                     profileFloat 5s ease-in-out 0.9s infinite;
+          animation-delay: 0.3s, 1.2s;
+        }
+        
+        @keyframes heroPhotoIn {
+          from {
+            opacity: 0;
+            transform: translateX(40px) scale(0.95);
+          }
+        
+          to {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+          }
+        }
+
     </style>
 </head>
 
