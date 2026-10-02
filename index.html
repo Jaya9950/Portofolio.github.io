@@ -424,8 +424,32 @@
         .hero-photo {
             position: relative;
         
+            width: 330px;
+            height: 390px;
+        
+            overflow: hidden;
+        
+            border-radius: 24px;
+        
             animation: profileFloat 5s ease-in-out infinite;
         }
+        
+        .hero-photo img {
+            width: 115%;
+            height: 115%;
+        
+            object-fit: cover;
+        
+            /* Zoom + geser sedikit ke atas */
+            object-position: center 35%;
+        
+            display: block;
+        
+            transform: translate(-7.5%, -7%);
+        }
+        
+        
+        /* Ring tetap berada di luar foto */
         
         .hero-photo::before {
             content: "";
@@ -439,6 +463,8 @@
             border-radius: 50%;
         
             animation: profileRing 8s linear infinite;
+        
+            pointer-events: none;
         }
         
         
